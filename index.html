@@ -1,31 +1,34 @@
-<!doctype html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>js-dos api</title>
-    <style type="text/css">
-      .dosbox-container { width: 640px; height: 400px; }
-      .dosbox-container > .dosbox-overlay { background: url(./morsetrainer-preview.png); }
-      .dosbox-start { font-size: 35px !important; }
-    </style>
-  </head>
-  <body>
-    <div id="dosbox"></div>
-    <br/>
-    <button onclick="dosbox.requestFullScreen();">Make fullscreen</button>
-    
-    <script type="text/javascript" src="./js-dos-api.js"></script>
-    <script type="text/javascript">
-      var dosbox = new Dosbox({
-        id: "dosbox",
-        onload: function (dosbox) {
-          dosbox.run("./morsetrainerwsj.zip", "./MORSE.BAT");
-        },
-        onrun: function (dosbox, app) {
-          console.log("App '" + app + "' is runned");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js-dos morse trainer</title>
+
+    <style>
+        html, body {
+            height: 100%;
         }
-      });
+
+        #dos {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <!-- js-dos style sheet -->
+    <link rel="stylesheet" href="./js-dos.css">
+
+    <!-- js-dos -->
+    <script src="./js-dos.js"></script>
+</head>
+  <body>
+
+    <div id="dos" style="width: 100%; height: 100%"></div>
+
+    <script>
+        Dos(document.getElementById("dos"), {
+            url: "./morsetrainerwsj.jsdos",
+        });
     </script>
-  </body>
+</body>
 </html>
